@@ -4,14 +4,45 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Navigation Toggle
+  const CALL_SUBJECT = 'Vrijblijvende kennismaking / sparsessie (30 min)';
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // 1. Mobile Navigation Toggle & Escape Handling
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileIcon = document.getElementById('mobile-menu-icon');
+
+  function setMobileMenuOpen(open) {
+    if (!mobileMenu || !mobileBtn) return;
+    mobileMenu.classList.toggle('is-open', open);
+    mobileBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mobileBtn.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+    if (mobileIcon) {
+      mobileIcon.innerHTML = open
+        ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>'
+        : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+    }
+  }
 
   if (mobileBtn && mobileMenu) {
     mobileBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('is-open');
-      mobileBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      const nextState = !mobileMenu.classList.contains('is-open');
+      setMobileMenuOpen(nextState);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
+        setMobileMenuOpen(false);
+        mobileBtn.focus();
+      }
     });
   }
 
@@ -45,8 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Close mobile menu first if open so layout height is stable before calculating offset
       if (mobileMenu && mobileMenu.classList.contains('is-open')) {
-        mobileMenu.classList.remove('is-open');
-        if (mobileBtn) mobileBtn.setAttribute('aria-expanded', 'false');
+        setMobileMenuOpen(false);
       }
 
       if (href === '#' || href === '#top' || document.querySelector(href)) {
@@ -56,9 +86,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 3. Package Selection Pre-fill for Contact Form
+  // 3. Package Selection Pre-fill & Dynamic Bericht Requirement Toggle
   const subjectSelect = document.getElementById('onderwerp');
+  const berichtInput = document.getElementById('bericht');
+  const berichtLabel = document.getElementById('bericht-label');
+  const submitBtnText = document.getElementById('submit-btn-text');
   const packageButtons = document.querySelectorAll('[data-package-select]');
+  let highlightTimer = null;
+
+  function syncFormWithSubject() {
+    if (!subjectSelect) return;
+    const isIntroCall = subjectSelect.value === CALL_SUBJECT;
+
+    if (berichtInput) {
+      berichtInput.required = !isIntroCall;
+      berichtInput.placeholder = isIntroCall
+        ? 'Optioneel: deel alvast kort je vraag, idee of voorkeur voor een moment...'
+        : 'Korte toelichting op je vraag of idee...';
+    }
+    if (berichtLabel) {
+      berichtLabel.textContent = isIntroCall
+        ? 'Korte toelichting (optioneel bij kennismaking)'
+        : 'Bericht *';
+    }
+    if (submitBtnText) {
+      submitBtnText.textContent = isIntroCall
+        ? 'Gesprek aanvragen'
+        : 'Bericht versturen';
+    }
+  }
 
   if (subjectSelect) {
     const params = new URLSearchParams(window.location.search);
@@ -66,12 +122,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pakketParam === 'ai') {
       subjectSelect.value = 'AI & Automatisering Sprint (richtprijs € 1.750,-)';
     } else if (pakketParam === 'web') {
-      subjectSelect.value = 'All-In Bedrijfswebsite / Webapp (richtprijs € 2.000,-)';
+      subjectSelect.value = 'All-In Bedrijfswebsite (richtprijs € 2.000,-)';
     } else if (pakketParam === 'dashboard') {
       subjectSelect.value = 'Data & KPI Dashboard Setup (richtprijs € 1.250,-)';
     } else if (pakketParam === 'verkenning') {
-      subjectSelect.value = 'Vrijblijvende kennismaking / sparsessie (30 min)';
+      subjectSelect.value = CALL_SUBJECT;
+    } else if (pakketParam === 'maatwerk') {
+      subjectSelect.value = 'Anders / Maatwerk of hulp op uurbasis (€ 75,-/u)';
     }
+
+    syncFormWithSubject();
+    subjectSelect.addEventListener('change', syncFormWithSubject);
 
     if (packageButtons.length > 0) {
       packageButtons.forEach((btn) => {
@@ -79,6 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const targetValue = btn.getAttribute('data-package-select');
           if (targetValue) {
             subjectSelect.value = targetValue;
+            syncFormWithSubject();
+            subjectSelect.classList.add('is-highlighted');
+            clearTimeout(highlightTimer);
+            highlightTimer = setTimeout(() => {
+              subjectSelect.classList.remove('is-highlighted');
+            }, 1400);
           }
         });
       });
@@ -100,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
       successNotice.style.cssText =
         'margin-bottom: 1.25rem; padding: 1rem 1.25rem; border-radius: 12px; background-color: #ECFDF5; border: 1px solid #A7F3D0; color: #065F46; font-size: 0.88rem; display: flex; align-items: flex-start; gap: 0.75rem;';
       successNotice.innerHTML = `
-        <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #10B981; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;">✓</span>
+        <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #047857; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;">✓</span>
         <div>
           <strong style="display: block; font-weight: 700; color: #065F46;">Bedankt voor je bericht!</strong>
           <span style="font-size: 0.8rem; color: #047857;">Ik heb je aanvraag ontvangen en neem binnen één werkdag contact met je op.</span>
@@ -114,22 +181,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
       e.preventDefault();
       const submitBtn = form.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn ? submitBtn.innerHTML : '<span>Bericht versturen</span>';
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : '<span>Bericht versturen</span>';
 
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.style.opacity = '0.8';
         submitBtn.style.cursor = 'not-allowed';
-        submitBtn.innerHTML = `<span>Verzenden...</span>`;
+        submitBtn.innerHTML = '<span>Verzenden...</span>';
       }
 
-      // Collect form field values for potential fallback
+      // Collect form field values
       const naam = (document.getElementById('naam')?.value || '').trim();
       const bedrijf = (document.getElementById('bedrijf')?.value || '').trim();
       const email = (document.getElementById('email')?.value || '').trim();
       const telefoon = (document.getElementById('telefoon')?.value || '').trim();
       const onderwerp = (document.getElementById('onderwerp')?.value || '').trim();
       const bericht = (document.getElementById('bericht')?.value || '').trim();
+
+      // Dynamic email subject so each lead lands in its own Gmail thread
+      const hiddenSubject = form.querySelector('input[name="subject"]');
+      if (hiddenSubject) {
+        hiddenSubject.value = `Nieuwe aanvraag (${naam || email || 'bezoeker'}): ${onderwerp || 'Contact'}`;
+      }
 
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
@@ -156,17 +229,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (res.ok && data && (data.success === true || data.success === 'true')) {
           const formHeading = document.getElementById('form-heading');
           if (formHeading) formHeading.style.display = 'none';
+          const safeNaam = escapeHtml(naam);
+          const safeContact = escapeHtml(email || 'je contactgegevens');
+
           form.innerHTML = `
             <div style="padding: 2rem 1rem; text-align: center;">
-              <div style="width: 56px; height: 56px; border-radius: 50%; background-color: #D1FAE5; color: #059669; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.5rem;">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background-color: #D1FAE5; color: #047857; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.5rem;">
                 ✓
               </div>
-              <h4 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #13294B;">Bericht succesvol verzonden!</h4>
-              <p style="font-size: 0.9rem; color: #5C616B; max-width: 42ch; margin: 0 auto 1.25rem; line-height: 1.6;">
-                Bedankt voor je aanvraag${naam ? ', ' + naam : ''}. Ik heb je gegevens in goede orde ontvangen en neem uiterlijk binnen één werkdag persoonlijk contact met je op.
+              <h4 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #13294B;">Aanvraag ontvangen!</h4>
+              <p style="font-size: 0.92rem; color: #525B68; max-width: 44ch; margin: 0 auto 1.25rem; line-height: 1.6;">
+                Bedankt${safeNaam ? ', ' + safeNaam : ''}. Ik heb je aanvraag in goede orde ontvangen en neem uiterlijk binnen één werkdag persoonlijk contact met je op.
               </p>
-              <span style="display: inline-block; font-size: 0.75rem; font-weight: 600; color: #047857; background-color: #ECFDF5; padding: 0.4rem 0.85rem; border-radius: 8px; border: 1px solid #A7F3D0;">
-                Bevestiging verzonden naar ${email || 'je e-mail'}
+              <span style="display: inline-block; font-size: 0.78rem; font-weight: 600; color: #065F46; background-color: #ECFDF5; padding: 0.45rem 0.9rem; border-radius: 8px; border: 1px solid #A7F3D0;">
+                Aanvraag geregistreerd • Reactie binnen 1 werkdag via ${safeContact}
               </span>
             </div>
           `;
@@ -185,14 +261,14 @@ document.addEventListener('DOMContentLoaded', () => {
           (bedrijf ? `• Bedrijf: ${bedrijf}\n` : '') +
           `• E-mail: ${email}\n` +
           (telefoon ? `• Telefoon: ${telefoon}\n` : '') +
-          `• Onderwerp: ${onderwerp}\n\n` +
-          `Bericht:\n${bericht}`
+          `• Onderwerp: ${onderwerp}\n` +
+          (bericht ? `\nToelichting:\n${bericht}` : '')
         );
 
         // Pre-fill Mailto link
         const mailSubject = encodeURIComponent(`Nieuwe aanvraag via website: ${onderwerp || naam}`);
         const mailBody = encodeURIComponent(
-          `Naam: ${naam}\nBedrijf: ${bedrijf}\nE-mail: ${email}\nTelefoon: ${telefoon}\nOnderwerp: ${onderwerp}\n\nBericht:\n${bericht}`
+          `Naam: ${naam}\nBedrijf: ${bedrijf}\nE-mail: ${email}\nTelefoon: ${telefoon}\nOnderwerp: ${onderwerp}\n\nToelichting:\n${bericht}`
         );
 
         // Reset submit button
@@ -200,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
           submitBtn.disabled = false;
           submitBtn.style.opacity = '1';
           submitBtn.style.cursor = 'pointer';
-          submitBtn.innerHTML = originalBtnText;
+          submitBtn.innerHTML = originalBtnHtml;
         }
 
         // Show friendly in-place fallback notice above form (preserves all typed input)
@@ -212,9 +288,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         errorNotice.style.cssText =
-          'margin-bottom: 1.25rem; padding: 1.15rem; border-radius: 12px; background-color: #FFF7ED; border: 1px solid #FFEDD5; color: #9A3412; font-size: 0.88rem;';
+          'margin-bottom: 1.25rem; padding: 1.15rem; border-radius: 12px; background-color: #FFF7ED; border: 1px solid #FCD2BD; color: #9A3412; font-size: 0.88rem;';
         errorNotice.innerHTML = `
-          <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.35rem; color: #C2410C;">Verbinding met mailserver tijdelijk vertraagd</strong>
+          <strong style="display: block; font-size: 0.95rem; margin-bottom: 0.35rem; color: #9A3412;">Verbinding met formulierserver tijdelijk vertraagd</strong>
           <p style="margin-bottom: 0.85rem; line-height: 1.5; color: #7C2D12;">
             Je ingevulde gegevens zijn bewaard. Je kunt direct met 1 klik contact opnemen via WhatsApp of e-mail:
           </p>
