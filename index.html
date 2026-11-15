@@ -299,50 +299,111 @@
             </div>
           </div>
 
-          <!-- Rechter Kolom: Option A — Layered Real-Work + Personal Trust Showcase -->
+          <!-- Rechter Kolom: Rustige 2x2 hub-illustratie + persoonlijk vertrouwensblokje -->
           <div class="hero-visual-wrap">
-            <div class="hero-showcase" aria-label="Overzicht van gerealiseerd werk en samenwerking met Sander Bruggeman">
-              <div class="hs-topbar">
-                <span class="hs-topbar-title">Bruggeman Digital • Praktijk</span>
-                <span class="hs-status-pill">● 100% Eigen Beheer</span>
-              </div>
+            <div class="hero-visual-backdrop" aria-hidden="true"></div>
+            <div class="hero-hub-card" aria-label="Visueel overzicht: AI, Automatisering, Websites en Dashboards verbonden met Sander Bruggeman">
 
-              <!-- Module 1: Gerealiseerde AI Webapp -->
-              <div class="hs-module">
-                <div class="hs-module-head">
-                  <span class="hs-module-kicker">AI &amp; Portaal • Gerealiseerd</span>
-                  <span class="hs-module-badge">Besloten webapp</span>
-                </div>
-                <div class="hs-module-title">AI Factuur- &amp; KvK-Controleportaal</div>
-                <div class="hs-doc-bar">
-                  <span>Factuur_2026_084.pdf</span>
-                  <span class="hs-doc-arrow" aria-hidden="true">→</span>
-                  <span>CSV-export klaar</span>
-                </div>
-                <div class="hs-chips">
-                  <span class="hs-chip hs-chip--ok">KvK-check ✓</span>
-                  <span class="hs-chip hs-chip--ok">EU-BTW (VIES) ✓</span>
-                  <span class="hs-chip">Google Gemini</span>
-                </div>
-              </div>
+              <div class="hero-hub-stage">
+                <!-- Verbindingslijnen (SVG) op de achtergrond -->
+                <svg class="hero-hub-lines" viewBox="0 0 406 314" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <!-- Subtiele cirkels rond het midden -->
+                  <circle cx="203" cy="157" r="66" stroke="#D5E0F0" stroke-width="1.5" stroke-dasharray="4 4" />
+                  <circle cx="203" cy="157" r="96" stroke="#E6EEF8" stroke-width="1" />
 
-              <!-- Module 2: Live Bedrijfswebsite & Koppeling -->
-              <div class="hs-module">
-                <div class="hs-module-head">
-                  <span class="hs-module-kicker">Website &amp; Workflow</span>
-                  <span class="hs-module-badge">Eigen domein</span>
+                  <!-- Vloeiende verbindingslijnen vanuit het midden naar de 4 kaarten -->
+                  <path d="M 155 142 C 105 142, 78 136, 78 113" stroke="#13294B" stroke-width="2" stroke-linecap="round" opacity="0.32" />
+                  <path d="M 251 142 C 301 142, 328 136, 328 113" stroke="#13294B" stroke-width="2" stroke-linecap="round" opacity="0.32" />
+                  <path d="M 155 172 C 105 172, 78 178, 78 201" stroke="#13294B" stroke-width="2" stroke-linecap="round" opacity="0.32" />
+                  <path d="M 251 172 C 301 172, 328 178, 328 201" stroke="#13294B" stroke-width="2" stroke-linecap="round" opacity="0.32" />
+
+                  <!-- Oranje verbindingspunten -->
+                  <circle cx="155" cy="142" r="4" fill="#FF6A2B" />
+                  <circle cx="78" cy="113" r="4" fill="#FF6A2B" />
+
+                  <circle cx="251" cy="142" r="4" fill="#FF6A2B" />
+                  <circle cx="328" cy="113" r="4" fill="#FF6A2B" />
+
+                  <circle cx="155" cy="172" r="4" fill="#FF6A2B" />
+                  <circle cx="78" cy="201" r="4" fill="#FF6A2B" />
+
+                  <circle cx="251" cy="172" r="4" fill="#FF6A2B" />
+                  <circle cx="328" cy="201" r="4" fill="#FF6A2B" />
+                </svg>
+
+                <!-- 2x2 Grid van rustige visuele kaarten -->
+                <div class="hero-hub-grid">
+
+                  <!-- 1. AI & Slimme Hulp -->
+                  <div class="hh-node">
+                    <div class="hh-graphic hh-graphic--ai" aria-hidden="true">
+                      <div class="hh-ai-sparkle">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="#FF6A2B"/>
+                          <circle cx="19" cy="5" r="2" fill="#13294B"/>
+                        </svg>
+                      </div>
+                      <div class="hh-mini-lines">
+                        <span class="w-80"></span>
+                        <span class="w-55"></span>
+                      </div>
+                    </div>
+                    <span class="hh-label">AI-toepassingen</span>
+                  </div>
+
+                  <!-- 2. Automatisering -->
+                  <div class="hh-node">
+                    <div class="hh-graphic hh-graphic--flow" aria-hidden="true">
+                      <div class="hh-flow-nodes">
+                        <span class="hh-dot hh-dot--navy"></span>
+                        <span class="hh-line"></span>
+                        <span class="hh-dot hh-dot--orange"></span>
+                        <span class="hh-line"></span>
+                        <span class="hh-dot hh-dot--green">✓</span>
+                      </div>
+                      <div class="hh-mini-lines">
+                        <span class="w-70"></span>
+                        <span class="w-45"></span>
+                      </div>
+                    </div>
+                    <span class="hh-label">Automatisering</span>
+                  </div>
+
+                  <!-- 3. Websites & Apps -->
+                  <div class="hh-node">
+                    <div class="hh-graphic hh-graphic--web" aria-hidden="true">
+                      <div class="hh-browser">
+                        <div class="hh-browser-top">
+                          <i></i><i></i><i></i>
+                        </div>
+                        <div class="hh-browser-body">
+                          <div class="hh-browser-hero"></div>
+                          <div class="hh-browser-btn"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="hh-label">Websites &amp; Apps</span>
+                  </div>
+
+                  <!-- 4. Dashboards & Inzicht -->
+                  <div class="hh-node">
+                    <div class="hh-graphic hh-graphic--chart" aria-hidden="true">
+                      <div class="hh-bars">
+                        <span style="height: 38%"></span>
+                        <span style="height: 58%"></span>
+                        <span style="height: 48%"></span>
+                        <span class="hh-bar-accent" style="height: 92%"></span>
+                      </div>
+                    </div>
+                    <span class="hh-label">Dashboards</span>
+                  </div>
+
                 </div>
-                <div class="hs-module-title">Bedrijfswebsite &amp; Klantaanvraag</div>
-                <div class="hs-flow-steps">
-                  <span class="hs-flow-pill">Aanvraag</span>
-                  <span class="hs-flow-sep" aria-hidden="true">→</span>
-                  <span class="hs-flow-pill">n8n workflow</span>
-                  <span class="hs-flow-sep" aria-hidden="true">→</span>
-                  <span class="hs-flow-pill">Mailbox &amp; Sheet</span>
+
+                <!-- Centraal Bruggeman Digital Icoon -->
+                <div class="hero-hub-center" aria-hidden="true">
+                  <img src="assets/brand-mark-header.svg" alt="" width="76" height="76" />
                 </div>
-                <p class="hs-module-note">
-                  Live website o.a. <a href="https://fruvyland.nl/" target="_blank" rel="noopener noreferrer">fruvyland.nl</a> • € 0,- maandcontract
-                </p>
               </div>
 
               <!-- Persoonlijke Trust Footer -->
@@ -359,6 +420,7 @@
                   <span class="hs-founder-meta">Hoek van Holland • Vaste prijsafspraak vooraf</span>
                 </div>
               </div>
+
             </div>
           </div>
 
