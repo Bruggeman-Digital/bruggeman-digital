@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="https://wa.me/31619588717?text=${waText}" target="_blank" rel="noopener noreferrer" class="btn btn--orange" style="padding: 0.45rem 0.9rem; font-size: 0.82rem; text-decoration: none;">
               Stuur via WhatsApp ↗
             </a>
-            <a href="mailto:srabruggeman@gmail.com?subject=${mailSubject}&body=${mailBody}" class="btn btn--surface" style="padding: 0.45rem 0.9rem; font-size: 0.82rem; text-decoration: none;">
+            <a href="mailto:info@bruggemandigital.nl?subject=${mailSubject}&body=${mailBody}" class="btn btn--surface" style="padding: 0.45rem 0.9rem; font-size: 0.82rem; text-decoration: none;">
               Stuur via E-mail ↗
             </a>
           </div>
