@@ -46,7 +46,7 @@
   <link rel="alternate" type="text/plain" href="https://www.bruggemandigital.nl/llms.txt" title="LLMs Context & Pricing Documentation" />
 
   <!-- Stylesheet (includes self-hosted fonts) -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 
   <!-- Rich JSON-LD Structured Data (@graph) for SEO & Generative Engine Optimization (GEO) -->
   <script type="application/ld+json">
@@ -231,13 +231,13 @@
             <div class="hero-stage-card" aria-label="Interactieve voorbeelden van AI-automatisering, websites en dashboards">
 
               <div class="hero-stage-tabs" role="tablist" aria-label="Kies een oplossing">
-                <button type="button" role="tab" aria-selected="true" data-stage-tab="ai" class="hero-stage-tab is-active">AI &amp; Flows</button>
-                <button type="button" role="tab" aria-selected="false" data-stage-tab="web" class="hero-stage-tab">Websites</button>
-                <button type="button" role="tab" aria-selected="false" data-stage-tab="kpi" class="hero-stage-tab">Dashboards</button>
+                <button type="button" id="stage-tab-ai" role="tab" aria-selected="true" aria-controls="stage-panel-ai" tabindex="0" data-stage-tab="ai" class="hero-stage-tab is-active">AI &amp; Flows</button>
+                <button type="button" id="stage-tab-web" role="tab" aria-selected="false" aria-controls="stage-panel-web" tabindex="-1" data-stage-tab="web" class="hero-stage-tab">Websites</button>
+                <button type="button" id="stage-tab-kpi" role="tab" aria-selected="false" aria-controls="stage-panel-kpi" tabindex="-1" data-stage-tab="kpi" class="hero-stage-tab">Dashboards</button>
               </div>
 
               <!-- Panel 1: AI & Automatisering -->
-              <div data-stage-panel="ai" class="hero-stage-panel is-active">
+              <div id="stage-panel-ai" role="tabpanel" aria-labelledby="stage-tab-ai" data-stage-panel="ai" class="hero-stage-panel is-active">
                 <div class="stage-kicker">
                   <span>WORKFLOW • N8N + GEMINI AI</span>
                   <span class="stage-pill-ok">● Actief</span>
@@ -263,7 +263,7 @@
               </div>
 
               <!-- Panel 2: Websites & Portalen -->
-              <div data-stage-panel="web" class="hero-stage-panel">
+              <div id="stage-panel-web" role="tabpanel" aria-labelledby="stage-tab-web" data-stage-panel="web" class="hero-stage-panel" hidden>
                 <div class="stage-kicker">
                   <span>ALL-IN BEDRIJFSWEBSITE</span>
                   <span class="stage-pill-ok">99/100 Speed</span>
@@ -285,7 +285,7 @@
               </div>
 
               <!-- Panel 3: KPI Dashboards -->
-              <div data-stage-panel="kpi" class="hero-stage-panel">
+              <div id="stage-panel-kpi" role="tabpanel" aria-labelledby="stage-tab-kpi" data-stage-panel="kpi" class="hero-stage-panel" hidden>
                 <div class="stage-kicker">
                   <span>REALTIME MKB DASHBOARD</span>
                   <span class="stage-pill-ok">€ 0,- licenties</span>
@@ -376,7 +376,7 @@
             <div>
               <div class="bento-visual" aria-hidden="true">
                 <div class="bento-ui-row">
-                  <span>📄 inkoop-factuur.pdf</span>
+                  <span class="bento-row-label"><svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg><span>inkoop-factuur.pdf</span></span>
                   <span class="bento-chip-orange">Gemini AI</span>
                 </div>
                 <div class="bento-ui-row">
@@ -440,7 +440,7 @@
             <div>
               <div class="bento-visual" aria-hidden="true">
                 <div class="bento-ui-row">
-                  <span>🌐 jouwbedrijf.nl</span>
+                  <span class="bento-row-label"><svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg><span>jouwbedrijf.nl</span></span>
                   <span class="bento-chip-ok">Eigen domein</span>
                 </div>
                 <div class="bento-ui-row">
@@ -468,7 +468,7 @@
             <div>
               <div class="bento-visual" aria-hidden="true">
                 <div class="bento-ui-row">
-                  <span>📊 Omzet, Marge &amp; Offertes</span>
+                  <span class="bento-row-label"><svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg><span>Omzet, Marge &amp; Offertes</span></span>
                   <span class="bento-chip-ok">Live sync</span>
                 </div>
                 <div class="bento-ui-row">
@@ -552,13 +552,13 @@
             </div>
           </article>
 
-          <!-- CASE 2: SMARTMICHAEL AI PORTAAL -->
+          <!-- CASE 2: BESLOTEN AI WEBAPP (AI FACTUUR- & CONTROLEPORTAAL) -->
           <article id="case-portaal" class="case-card">
             <div class="case-preview-side case-preview-side--dark">
-              <div class="portal-preview" aria-label="AI Factuur- en Controleportaal">
+              <div class="portal-preview" aria-label="Voorbeeld van het besloten AI Factuur- en Controleportaal">
                 <div class="portal-topbar">
-                  <span class="portal-title">SmartMichael • AI Factuurportaal</span>
-                  <span class="portal-badge">Productie Cloud Run</span>
+                  <span class="portal-title">AI Factuur- &amp; Controleportaal</span>
+                  <span class="portal-badge">Besloten Cloud Run</span>
                 </div>
                 <div class="portal-body">
                   <div class="portal-row">
