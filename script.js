@@ -46,6 +46,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 1b. Interactive Hero Visual Stage Tabs
+  const stageTabs = document.querySelectorAll('[data-stage-tab]');
+  const stagePanels = document.querySelectorAll('[data-stage-panel]');
+  if (stageTabs.length > 0 && stagePanels.length > 0) {
+    stageTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const target = tab.getAttribute('data-stage-tab');
+        stageTabs.forEach((t) => {
+          const active = t === tab;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        stagePanels.forEach((p) => {
+          p.classList.toggle('is-active', p.getAttribute('data-stage-panel') === target);
+        });
+      });
+    });
+  }
+
   // 2. Reliable Smooth Anchor Scrolling (with sticky header offset)
   const HEADER_OFFSET = 84;
 

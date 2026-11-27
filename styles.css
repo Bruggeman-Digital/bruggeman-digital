@@ -2288,3 +2288,312 @@ p {
   color: var(--muted);
   line-height: 1.55;
 }
+
+
+/* ==========================================================================
+   VISUAL-FIRST MKB REDESIGN (BENTO UI CANVASES, INTERACTIVE STAGE & SCANNABLE CHIPS)
+   ========================================================================== */
+.hero-stage-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 500px;
+  background-color: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--navy-tint-border);
+  box-shadow: var(--shadow-elevated);
+  padding: 1.25rem;
+  overflow: hidden;
+}
+
+.hero-stage-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+  background-color: var(--navy-tint);
+  padding: 0.32rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.hero-stage-tab {
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  padding: 0.5rem 0.4rem;
+  border-radius: 0.55rem;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.hero-stage-tab:hover {
+  color: var(--navy);
+}
+
+.hero-stage-tab.is-active {
+  background-color: var(--surface);
+  color: var(--navy);
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-stage-panel {
+  display: none;
+  background: linear-gradient(180deg, #0B1B33 0%, #13294B 100%);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  color: #FFFFFF;
+  min-height: 238px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-stage-panel.is-active {
+  display: flex;
+}
+
+.stage-kicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #94A3B8;
+  margin-bottom: 0.75rem;
+}
+
+.stage-pill-ok {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(16, 185, 129, 0.16);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: #6EE7B7;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+.stage-flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.stage-flow-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.82rem;
+}
+
+.stage-flow-left {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+}
+
+.stage-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--orange);
+  flex-shrink: 0;
+}
+
+.stage-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.stage-kpi-box {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.65rem;
+  padding: 0.65rem 0.75rem;
+}
+
+.stage-kpi-label {
+  display: block;
+  font-size: 0.7rem;
+  color: #CBD5E1;
+}
+
+.stage-kpi-val {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-top: 0.15rem;
+}
+
+.stage-mini-bars {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: end;
+  gap: 0.45rem;
+  height: 68px;
+  padding: 0.5rem 0.65rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.65rem;
+}
+
+.stage-mini-bars span {
+  display: block;
+  border-radius: 4px 4px 2px 2px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.stage-mini-bars span.is-accent {
+  background: var(--orange);
+}
+
+/* Visual Bento Service Cards */
+.bento-visual {
+  background: linear-gradient(180deg, #F4F7FC 0%, #EAF0F9 100%);
+  border: 1px solid var(--navy-tint-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.15rem;
+  min-height: 124px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.bento-ui-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border-solid);
+  border-radius: 0.55rem;
+  padding: 0.48rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  box-shadow: var(--shadow-soft);
+}
+
+.bento-chip-ok {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--emerald);
+  background: var(--emerald-bg);
+  border: 1px solid var(--emerald-border);
+  padding: 0.14rem 0.48rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.bento-chip-orange {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--orange-cta);
+  background: var(--orange-light);
+  border: 1px solid var(--orange-border);
+  padding: 0.14rem 0.48rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.bento-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.bento-pipe-node {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border-solid);
+  border-radius: 0.55rem;
+  padding: 0.55rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--navy);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.bento-pipe-arrow {
+  color: var(--orange-cta);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+}
+
+.bento-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--navy-tint);
+  border: 1px solid var(--navy-tint-border);
+  padding: 0.22rem 0.6rem;
+  border-radius: 999px;
+}
+
+/* Compact Case Metrics Row */
+.case-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin: 0.85rem 0;
+}
+
+.case-metric-box {
+  background: var(--bg);
+  border: 1px solid var(--border-solid);
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.65rem;
+}
+
+.case-metric-val {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.case-metric-lbl {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 600px) {
+  .case-metrics {
+    grid-template-columns: 1fr;
+  }
+  .bento-pipeline {
+    flex-wrap: wrap;
+  }
+}
