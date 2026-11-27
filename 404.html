@@ -6,18 +6,43 @@
   <title>Pagina niet gevonden (404) | Bruggeman Digital</title>
   <meta name="description" content="Deze pagina bestaat niet of is verplaatst. Keer terug naar de hoofdpagina van Bruggeman Digital." />
   <meta name="robots" content="noindex, follow" />
+  <script>
+    (function () {
+      var path = window.location.pathname.replace(/\/+$/, '').toLowerCase();
+      var redirects = {
+        '/over': '/#over-mij',
+        '/over-ons': '/#over-mij',
+        '/over-mij': '/#over-mij',
+        '/diensten': '/#diensten',
+        '/oplossingen': '/#diensten',
+        '/cases': '/#werk',
+        '/werk': '/#werk',
+        '/werkwijze': '/#werkwijze',
+        '/aanpak': '/#werkwijze',
+        '/prijzen': '/#prijzen',
+        '/tarieven': '/#prijzen',
+        '/faq': '/#faq',
+        '/contact': '/#contact',
+        '/privacy': '/privacy.html',
+        '/algemene-voorwaarden': '/algemene-voorwaarden.html'
+      };
+      if (redirects[path]) {
+        window.location.replace(redirects[path]);
+      }
+    })();
+  </script>
 
   <!-- Favicon & Touch Icons -->
-  <link rel="icon" href="favicon.ico" sizes="32x32" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#13294B" />
 
   <!-- Stylesheet (includes self-hosted fonts) -->
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="/styles.css?v=7" />
 </head>
 <body id="top">
   <a href="#main-content" class="skip-link">Direct naar hoofdinhoud</a>
@@ -25,22 +50,22 @@
   <!-- ================= HEADER / NAVIGATIE ================= -->
   <header class="site-header">
     <div class="container nav-inner">
-      <a href="index.html" class="header-brand" aria-label="Bruggeman Digital">
-        <img src="assets/brand-mark-header.svg" alt="" width="28" height="28" />
+      <a href="/" class="header-brand" aria-label="Bruggeman Digital">
+        <img src="/assets/brand-mark-header.svg" alt="" width="28" height="28" />
         <span>Bruggeman <span style="font-weight: 400;">Digital</span><span style="color: var(--orange);">.</span></span>
       </a>
 
       <nav class="nav-links" aria-label="Hoofdnavigatie">
-        <a href="index.html#diensten" class="nav-link">Oplossingen</a>
-        <a href="index.html#werk" class="nav-link">Cases</a>
-        <a href="index.html#werkwijze" class="nav-link">Aanpak</a>
-        <a href="index.html#prijzen" class="nav-link">Prijzen</a>
-        <a href="index.html#over-mij" class="nav-link">Over mij</a>
-        <a href="index.html#faq" class="nav-link">FAQ</a>
+        <a href="/#diensten" class="nav-link">Oplossingen</a>
+        <a href="/#werk" class="nav-link">Cases</a>
+        <a href="/#werkwijze" class="nav-link">Aanpak</a>
+        <a href="/#prijzen" class="nav-link">Prijzen</a>
+        <a href="/#over-mij" class="nav-link">Over mij</a>
+        <a href="/#faq" class="nav-link">FAQ</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="index.html#contact" class="btn btn--orange">
+        <a href="/#contact" class="btn btn--orange">
           <span>Gratis kennismaking</span>
           <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
@@ -56,13 +81,13 @@
     <div id="mobile-menu" class="mobile-nav">
       <div class="container">
         <nav class="mobile-nav-list" aria-label="Mobiele navigatie">
-          <a href="index.html#diensten" class="mobile-nav-link">Oplossingen</a>
-          <a href="index.html#werk" class="mobile-nav-link">Cases</a>
-          <a href="index.html#werkwijze" class="mobile-nav-link">Aanpak</a>
-          <a href="index.html#prijzen" class="mobile-nav-link">Prijzen</a>
-          <a href="index.html#over-mij" class="mobile-nav-link">Over mij</a>
-          <a href="index.html#faq" class="mobile-nav-link">FAQ</a>
-          <a href="index.html#contact" class="btn btn--orange" style="width: 100%; margin-top: 0.5rem;">
+          <a href="/#diensten" class="mobile-nav-link">Oplossingen</a>
+          <a href="/#werk" class="mobile-nav-link">Cases</a>
+          <a href="/#werkwijze" class="mobile-nav-link">Aanpak</a>
+          <a href="/#prijzen" class="mobile-nav-link">Prijzen</a>
+          <a href="/#over-mij" class="mobile-nav-link">Over mij</a>
+          <a href="/#faq" class="mobile-nav-link">FAQ</a>
+          <a href="/#contact" class="btn btn--orange" style="width: 100%; margin-top: 0.5rem;">
             <span>Gratis kennismaking</span>
           </a>
         </nav>
@@ -83,10 +108,10 @@
         </div>
 
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.85rem; margin-top: 0.5rem;">
-          <a href="index.html" class="btn btn--orange btn--lg">
+          <a href="/" class="btn btn--orange btn--lg">
             <span>Terug naar bruggemandigital.nl</span>
           </a>
-          <a href="index.html#contact" class="btn btn--surface btn--lg">
+          <a href="/#contact" class="btn btn--surface btn--lg">
             <span>Contact opnemen</span>
           </a>
         </div>
@@ -99,8 +124,8 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <a href="index.html" class="footer-brand" aria-label="Bruggeman Digital">
-            <img src="assets/brand-mark-footer.svg" alt="" width="28" height="28" />
+          <a href="/" class="footer-brand" aria-label="Bruggeman Digital">
+            <img src="/assets/brand-mark-footer.svg" alt="" width="28" height="28" />
             <span>Bruggeman <span style="font-weight: 400;">Digital</span><span style="color: var(--orange);">.</span></span>
           </a>
           <p style="margin-top: 0.75rem; max-width: 40ch;">
@@ -114,12 +139,12 @@
         <div>
           <p class="footer-title">Navigatie</p>
           <ul class="footer-list">
-            <li><a href="index.html#diensten">Oplossingen</a></li>
-            <li><a href="index.html#werk">Cases</a></li>
-            <li><a href="index.html#werkwijze">Aanpak</a></li>
-            <li><a href="index.html#prijzen">Prijzen</a></li>
-            <li><a href="index.html#over-mij">Over mij</a></li>
-            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="/#diensten">Oplossingen</a></li>
+            <li><a href="/#werk">Cases</a></li>
+            <li><a href="/#werkwijze">Aanpak</a></li>
+            <li><a href="/#prijzen">Prijzen</a></li>
+            <li><a href="/#over-mij">Over mij</a></li>
+            <li><a href="/#faq">FAQ</a></li>
           </ul>
         </div>
 
@@ -137,14 +162,14 @@
       <div class="footer-bottom">
         <p>© 2026 Bruggeman Digital • Alle tarieven excl. 21% btw</p>
         <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.65rem 1.25rem;">
-          <a href="privacy.html">Privacyverklaring</a>
-          <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
-          <a href="llms.txt" class="mono">llms.txt</a>
+          <a href="/privacy.html">Privacyverklaring</a>
+          <a href="/algemene-voorwaarden.html">Algemene Voorwaarden</a>
+          <a href="/llms.txt" class="mono">llms.txt</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="script.js?v=6" defer></script>
+  <script src="/script.js?v=6" defer></script>
 </body>
 </html>

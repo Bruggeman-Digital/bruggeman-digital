@@ -1,0 +1,58 @@
+name: Site Integrity Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verify-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Check JavaScript syntax
+        run: node --check script.js
+
+      - name: Validate sitemap.xml and local asset links
+        run: |
+          python3 - <<'PY'
+          import os, re, sys, xml.etree.ElementTree as ET
+
+          # 1. Validate sitemap.xml syntax & verify every listed URL exists locally
+          tree = ET.parse("sitemap.xml")
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          locs = [el.text.strip() for el in tree.findall("sm:url/sm:loc", ns) if el.text]
+          if not locs:
+              sys.exit("sitemap.xml contains no <loc> entries")
+          for loc in locs:
+              rel = loc.replace("https://www.bruggemandigital.nl/", "").lstrip("/")
+              target = "index.html" if rel == "" else rel
+              if not os.path.exists(target):
+                  sys.exit(f"sitemap.xml points to missing local file: {target} ({loc})")
+
+          # 2. Verify local href/src targets across top-level HTML files
+          attr_re = re.compile(r'(?:href|src|srcset)="([^"]+)"')
+          missing = []
+          for html_file in ("index.html", "privacy.html", "algemene-voorwaarden.html", "404.html"):
+              with open(html_file, "r", encoding="utf-8") as fh:
+                  text = fh.read()
+              for raw in attr_re.findall(text):
+                  ref = raw.split(",")[0].strip().split()[0]
+                  if ref.startswith(("http://", "https://", "mailto:", "tel:", "#", "data:", "javascript:")):
+                      continue
+                  clean = ref.split("?")[0].split("#")[0].lstrip("/")
+                  if not clean:
+                      continue
+                  if not os.path.exists(clean):
+                      missing.append((html_file, ref))
+
+          if missing:
+              for f, r in missing:
+                  print(f"MISSING ASSET: {f} -> {r}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"OK: script.js valid, {len(locs)} sitemap URLs verified, 0 broken local links.")
+          PY
