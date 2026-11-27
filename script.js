@@ -46,6 +46,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // 1b. Interactive Hero Visual Stage Tabs (WAI-ARIA compliant + Arrow/Home/End keyboard nav)
+  const stageTabs = Array.from(document.querySelectorAll('[data-stage-tab]'));
+  const stagePanels = Array.from(document.querySelectorAll('[data-stage-panel]'));
+  if (stageTabs.length > 0 && stagePanels.length > 0) {
+    function activateStageTab(tab, focusTab = false) {
+      const target = tab.getAttribute('data-stage-tab');
+      stageTabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+        t.setAttribute('tabindex', active ? '0' : '-1');
+      });
+      stagePanels.forEach((p) => {
+        const active = p.getAttribute('data-stage-panel') === target;
+        p.classList.toggle('is-active', active);
+        p.hidden = !active;
+      });
+      if (focusTab) tab.focus();
+    }
+
+    stageTabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => activateStageTab(tab, false));
+      tab.addEventListener('keydown', (e) => {
+        let nextIdx = null;
+        if (e.key === 'ArrowRight') nextIdx = (idx + 1) % stageTabs.length;
+        else if (e.key === 'ArrowLeft') nextIdx = (idx - 1 + stageTabs.length) % stageTabs.length;
+        else if (e.key === 'Home') nextIdx = 0;
+        else if (e.key === 'End') nextIdx = stageTabs.length - 1;
+        if (nextIdx !== null) {
+          e.preventDefault();
+          activateStageTab(stageTabs[nextIdx], true);
+        }
+      });
+    });
+  }
+
   // 2. Reliable Smooth Anchor Scrolling (with sticky header offset)
   const HEADER_OFFSET = 84;
 
