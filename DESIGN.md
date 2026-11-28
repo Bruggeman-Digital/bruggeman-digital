@@ -2,7 +2,7 @@
 
 ## Brand Identity & Positioning
 - **Brand:** Bruggeman Digital (`https://www.bruggemandigital.nl`)
-- **Positioning:** Digital Partner voor Ondernemers & MKB (AI automation, business websites, custom webtools & KPI dashboards — fixed pricing upfront, 100% client-owned, €0 mandatory monthly retainers).
+- **Positioning:** Praktische AI & automatisering (hoofdaanbod), procesverbetering, maatwerksoftware/webtools, websites en data-overzicht voor Nederlandse ondernemers, ZZP'ers en het MKB — technologie-neutraal, offerte op basis van scope, eigendom waar van toepassing, en geen verplicht onderhoudsabonnement.
 - **Aesthetic Direction:** Dutch digital craftsmanship — crisp editorial hierarchy, generous whitespace, visual-first product cards & bento UI previews, zero AI buzzword fluff or neon gradients.
 - **Language:** Dutch (`nl`), direct, grounded, practical tone.
 
@@ -26,8 +26,8 @@
 
 ## Core UI Components
 - **Sticky Header:** Translucent white (`rgba(255,255,255,0.95)`, `backdrop-filter: blur(12px)`), 72px height, wordmark + 6 concise nav links + single primary orange CTA.
-- **Interactive Product Stage (Hero):** Tabbed dark-navy showcase card demonstrating real deliverables (`AI & Flows`, `Websites`, `Dashboards`) with live-looking status pills and founder trust bar.
+- **Interactive Product Stage (Hero):** Tabbed dark-navy showcase card demonstrating illustrative examples (`AI & Flows`, `Software & Web`, `Data-overzicht`) with explicit demo/illustrative labels and founder trust bar.
 - **Visual Bento Cards:** 2×2 grid pairing a crisp mini UI mockup at the top with a numbered title (`01`–`04`), 1–2 line description, and 3 concise pill tags.
-- **Case Study Cards:** Split browser/app preview window paired with 3 compact KPI metric boxes and 1 action link.
-- **Pricing Cards:** 3-column grid highlighting the middle featured card in Deep Navy with orange CTA.
+- **Example Cards:** Split browser/app wireframe preview paired with 3 qualitative summary boxes and 1 action link.
+- **Offer Cards:** 3-column grid highlighting the primary `AI & automatisering` card in Deep Navy with orange CTA (scope-based quotes, no fixed public prices).
 - **Accessibility & Privacy Rules:** WCAG 2.1 AA contrast, full keyboard navigation & focus rings (`2px solid #C2410C`), zero tracking cookies, and public location always shown as `Hoek van Holland, Nederland` (never street or postal code).

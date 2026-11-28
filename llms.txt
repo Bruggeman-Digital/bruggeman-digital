@@ -1,53 +1,57 @@
-# Bruggeman Digital — Digital Partner voor Ondernemers & MKB
+# Bruggeman Digital — AI & Automatisering, Maatwerksoftware & Websites
 
-> Bruggeman Digital (`https://www.bruggemandigital.nl`) helpt zelfstandigen en het MKB met praktische AI-toepassingen, procesautomatiseringen, bedrijfswebsites, maatwerk webtools en dashboards. Opgericht door Sander Bruggeman (AI Automation Builder in de Nederlandse tech- en SaaS-sector). Alles wordt ingericht op de eigen accounts van de klant, met duidelijke prijsafspraken vooraf en zonder verplichte maandabonnementen.
+> Bruggeman Digital (`https://www.bruggemandigital.nl`) helpt Nederlandse ondernemers, ZZP'ers en het MKB met praktische AI & automatisering (hoofdaanbod), aangevuld met procesverbetering & systeemkoppelingen, maatwerksoftware & webtools, websites en data-overzicht. Opgericht door Sander Bruggeman. Waar van toepassing wordt gewerkt op de eigen accounts van de opdrachtgever, met offertes op basis van scope (ex. btw) en zonder verplicht onderhoudsabonnement.
 
 ---
 
 ## Kernbeloftes & Werkwijze
 
-1. **Beginnen bij het vraagstuk, niet bij een tool:** Tools zoals n8n, Claude, WordPress of Looker Studio laten zien waar ervaring ligt, maar vormen geen beperking. Is een vraag simpeler op te lossen met een instelling in de huidige software, dan wordt dat eerlijk gezegd in het kennismakingsgesprek.
-2. **Voor Zelfstandigen & MKB:** Zowel voor zelfstandig ondernemers en kleine teams als voor zakelijke dienstverlening en groeiend MKB.
-3. **Gewoon in Eigen Beheer:** Oplossingen worden ingericht op de eigen accounts, cloud-omgevingen en domeinnaam van de klant. Geen vendor lock-in of verplichte maandabonnementen. Technisch onderhoud achteraf is optioneel en op afroep (€ 75,- ex. btw / uur).
-4. **Gratis Gesprek (30 min) & Transparante Richtprijzen:** Vrijblijvend kennismaken en sparren (30 minuten), gevolgd door een vaste prijsafspraak vooraf.
+1. **Beginnen bij het probleem, niet bij de tool:** Bruggeman Digital werkt technologie-neutraal. Hulpmiddelen zoals n8n, AI-modellen, WordPress of Looker Studio zijn voorbeelden van mogelijke middelen en geen doel op zichzelf. Is een vraag simpeler op te lossen met een instelling in bestaande software, dan wordt dat eerlijk aangegeven tijdens de kennismaking.
+2. **Voor Ondernemers, ZZP'ers & MKB:** Breed en praktisch inzetbaar voor zelfstandig ondernemers, kleine teams en mkb-bedrijven in Nederland.
+3. **Eigendom waar van toepassing & geen verplicht onderhoudsabonnement:** Oplossingen worden waar passend ingericht op de eigen accounts, cloud-omgevingen en domeinnaam van de klant, zonder verplicht onderhoudsabonnement. Eventuele kosten voor eigen software, hosting of AI-API's lopen via de eigen leveranciers van de klant.
+4. **Vrijblijvende kennismaking & eerste reactie binnen één werkdag:** Na een korte, vrijblijvende verkenning volgt bij passende opdrachten een offerte op basis van de overeengekomen scope. Op nieuwe aanvragen volgt een eerste reactie binnen één werkdag (ondersteuning vindt plaats op werkdagen, zonder continue bereikbaarheidsdienst).
 
 ---
 
-## De 4 Diensten
+## De 5 Diensten
 
-### 01. AI & Documentverwerking
-Inkomende PDF-facturen, aanvragen en e-mails automatisch laten uitlezen, controleren en klaarzetten als concept via zakelijke API-omgevingen zodat bedrijfsdata nooit publiek wordt gedeeld.
-- **Ervaring met o.a.:** Claude (Anthropic), Google Gemini, ChatGPT (OpenAI).
+### 01. AI & automatisering (hoofdaanbod)
+Praktische AI-toepassingen voor terugkerende bedrijfsprocessen, documenten, e-mail, aanvragen en interne kennis, met passende AI-diensten en integraties. Bij inzet van externe AI-diensten worden aanbieders en accountinstellingen vooraf samen afgestemd.
+- **Voorbeelden van mogelijke middelen:** Zakelijke API's en AI-modellen (zoals Claude, Google Gemini, OpenAI) en passende integraties.
 
-### 02. Procesautomatisering
-Website-formulieren, mailboxen, Excel-lijsten en meldingen direct aan elkaar koppelen zodat gegevens maar één keer ingevuld hoeven te worden.
-- **Ervaring met o.a.:** n8n, Google Cloud, Microsoft Azure en API-koppelingen op maat.
+### 02. Procesverbetering & systeemkoppelingen
+Formulieren, mailboxen, systemen, spreadsheets en meldingen verbinden met een passende mix van bestaande software, integraties en maatwerk om handmatig overtikwerk te verminderen.
+- **Voorbeelden van mogelijke middelen:** n8n, Google Cloud, Microsoft Azure en API-koppelingen op maat.
 
-### 03. Websites & Webtools
-Van een snelle, verzorgde bedrijfswebsite die de ondernemer zelf kan bijwerken tot een compacte webtool of maatwerk webapplicatie op eigen domein en hosting.
-- **Ervaring met o.a.:** WordPress, Lovable, GitHub en maatwerk webontwikkeling.
+### 03. Maatwerksoftware & webtools
+Kleine, doelgerichte webapplicaties, portals en tools wanneer standaardsoftware niet goed aansluit op het werkproces.
+- **Voorbeelden van mogelijke middelen:** Maatwerk webontwikkeling, GitHub en clouddiensten op maat.
 
-### 04. Dashboards & Data-Overzicht
-Versnipperde Excel-bestanden en losse exports bundelen in één actueel rapport of dashboard zonder dure maandelijkse BI-licenties per gebruiker.
-- **Ervaring met o.a.:** Google Looker Studio, Microsoft Excel, Google Sheets.
+### 04. Websites
+Beheersbare bedrijfswebsites en gerichte verbeteringen aan bestaande sites, op eigen domein en hosting waar van toepassing.
+- **Voorbeelden van mogelijke middelen:** WordPress en maatwerk webontwikkeling.
 
----
-
-## Gerealiseerd Werk & Voorbeelden
-
-- **Fruvyland (`https://fruvyland.nl/`):** Live publieke tweetalige (NL/EN) WordPress-bedrijfswebsite op eigen domein en hosting, zelf beheerbaar en € 0,- maandelijkse bureaukosten.
-- **AI Factuur- & Controleportaal (Besloten Webapplicatie):** Gerealiseerd portaal voor het in bulk uitlezen van PDF/ZIP-facturen met Google Gemini AI, inclusief automatische KvK Handelsregister- en EU-BTW (VIES) verificatie en CSV-export.
-- **Voorbeeldtoepassingen:** Automatische intake & offertevoorbereiding (n8n + AI) en bundeling van losse Excel/Google Sheets-bestanden naar één Looker Studio managementoverzicht.
+### 05. Data & overzicht
+Overzichtelijke rapportages en dashboards om relevante spreadsheets en databronnen te bundelen wanneer dat aantoonbaar helpt bij dagelijkse sturing.
+- **Voorbeelden van mogelijke middelen:** Google Looker Studio, Microsoft Excel en Google Sheets.
 
 ---
 
-## Richtprijzen, Trajecten & Uurtarief (ex. btw)
+## Gerealiseerd Project & Toepassingsvoorbeelden
 
-- **Vrijblijvende kennismaking / sparsessie (30 min):** Gratis
-- **AI & Automatisering Sprint (richtprijs, ± 1–2 weken):** € 1.750,- ex. btw (eenmalig)
-- **All-In Bedrijfswebsite (richtprijs, ± 2–3 weken):** € 2.000,- ex. btw (eenmalig)
-- **Data & KPI Dashboard Setup (richtprijs, ± 1–2 weken):** € 1.250,- ex. btw (eenmalig)
-- **Maatwerk Webapplicaties & Hulp op Afroep:** Vaste prijsafspraak op basis van scope, of flexibel op afroep voor € 75,- ex. btw per uur (zonder verplicht abonnement)
+- **Fruvyland (`https://fruvyland.nl/`) — Gerealiseerd project (Websites):** Tweetalige (NL + EN) B2B-website in WordPress, sleutelklaar opgeleverd op het eigen domein en hostingpakket van de klant, volledig in eigen beheer en zonder verplicht onderhoudscontract.
+- **Documentverwerking & controleworkflow (AI & automatisering — illustratief):** Illustratieve toepassing waarbij inkomende documenten, facturen of aanvragen automatisch worden uitgelezen, gecontroleerd en als concept klaargezet ter beoordeling en export.
+- **Intake & sturingsoverzicht (Proceskoppelingen & Data — illustratief):** Koppeling van formulieren en mailboxen naar opvolgtaken, en bundeling van losse spreadsheets tot één actueel sturingsoverzicht.
+
+---
+
+## Prijsafspraak, Garantie & Support (ex. btw)
+
+- **Vrijblijvende kennismaking:** Gratis korte verkenning om vraagstuk, gewenste uitkomst en haalbaarheid te bepalen.
+- **Offerte op basis van scope:** Geen publieke vaste pakketprijzen of standaard uurtarief; elk passend traject krijgt vooraf een offerte op maat op basis van de afgesproken scope, inclusies/exclusies en acceptatiecriteria (bedragen altijd exclusief 21% btw).
+- **Aanvullende wensen & meerwerk:** Wensen buiten de overeengekomen scope worden vooraf besproken en pas uitgevoerd nadat de aanvullende scope en bijbehorende offerte zijn bevestigd.
+- **Garantie & ondersteuning:** De bestaande 30-daagse herstelgarantie voor technische gebreken (zoals vastgelegd in de Algemene Voorwaarden) staat los van aanvullend beheer, wijzigingen of nieuw werk; daarvoor wordt apart op basis van scope geoffreerd.
+- **Reactietijd:** Eerste reactie op nieuwe aanvragen binnen één werkdag.
 
 ---
 

@@ -4,7 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const CALL_SUBJECT = 'Vrijblijvende kennismaking / sparsessie (30 min)';
+  const CALL_SUBJECT = 'Vrijblijvende kennismaking (30 min)';
 
   function escapeHtml(str) {
     return String(str)
@@ -155,16 +155,26 @@ document.addEventListener('DOMContentLoaded', () => {
   if (subjectSelect) {
     const params = new URLSearchParams(window.location.search);
     const pakketParam = params.get('pakket');
-    if (pakketParam === 'ai') {
-      subjectSelect.value = 'AI & Automatisering Sprint (richtprijs € 1.750,-)';
-    } else if (pakketParam === 'web') {
-      subjectSelect.value = 'All-In Bedrijfswebsite (richtprijs € 2.000,-)';
-    } else if (pakketParam === 'dashboard') {
-      subjectSelect.value = 'Data & KPI Dashboard Setup (richtprijs € 1.250,-)';
-    } else if (pakketParam === 'verkenning') {
-      subjectSelect.value = CALL_SUBJECT;
-    } else if (pakketParam === 'maatwerk') {
-      subjectSelect.value = 'Anders / Maatwerk of hulp op uurbasis (€ 75,-/u)';
+    const pakketAliasMap = {
+      ai: 'AI & automatisering',
+      automatisering: 'AI & automatisering',
+      koppelingen: 'Procesverbetering & systeemkoppelingen',
+      proces: 'Procesverbetering & systeemkoppelingen',
+      maatwerk: 'Maatwerksoftware & webtools',
+      software: 'Maatwerksoftware & webtools',
+      web: 'Websites',
+      website: 'Websites',
+      dashboard: 'Data & overzicht',
+      data: 'Data & overzicht',
+      verkenning: CALL_SUBJECT,
+      kennismaking: CALL_SUBJECT,
+    };
+    const pakketKey = (pakketParam || '').trim().toLowerCase();
+    if (pakketKey && pakketAliasMap[pakketKey]) {
+      const mappedValue = pakketAliasMap[pakketKey];
+      if (Array.from(subjectSelect.options).some((opt) => opt.value === mappedValue)) {
+        subjectSelect.value = mappedValue;
+      }
     }
 
     syncFormWithSubject();
@@ -174,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
       packageButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
           const targetValue = btn.getAttribute('data-package-select');
-          if (targetValue) {
+          if (targetValue && Array.from(subjectSelect.options).some((opt) => opt.value === targetValue)) {
             subjectSelect.value = targetValue;
             syncFormWithSubject();
             subjectSelect.classList.add('is-highlighted');
@@ -206,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <span style="width: 24px; height: 24px; border-radius: 50%; background-color: #047857; color: #FFFFFF; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;">✓</span>
         <div>
           <strong style="display: block; font-weight: 700; color: #065F46;">Bedankt voor je bericht!</strong>
-          <span style="font-size: 0.8rem; color: #047857;">Ik heb je aanvraag ontvangen en neem binnen één werkdag contact met je op.</span>
+          <span style="font-size: 0.8rem; color: #047857;">Ik heb je aanvraag ontvangen en je ontvangt binnen één werkdag een eerste reactie.</span>
         </div>
       `;
       form.parentNode.insertBefore(successNotice, form);
@@ -275,10 +285,10 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>
               <h4 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #13294B;">Aanvraag ontvangen!</h4>
               <p style="font-size: 0.92rem; color: #525B68; max-width: 44ch; margin: 0 auto 1.25rem; line-height: 1.6;">
-                Bedankt${safeNaam ? ', ' + safeNaam : ''}. Ik heb je aanvraag in goede orde ontvangen en neem uiterlijk binnen één werkdag persoonlijk contact met je op.
+                Bedankt${safeNaam ? ', ' + safeNaam : ''}. Ik heb je aanvraag in goede orde ontvangen; je ontvangt uiterlijk binnen één werkdag een eerste reactie.
               </p>
               <span style="display: inline-block; font-size: 0.78rem; font-weight: 600; color: #065F46; background-color: #ECFDF5; padding: 0.45rem 0.9rem; border-radius: 8px; border: 1px solid #A7F3D0;">
-                Aanvraag geregistreerd • Reactie binnen 1 werkdag via ${safeContact}
+                Aanvraag geregistreerd • Eerste reactie binnen 1 werkdag via ${safeContact}
               </span>
             </div>
           `;
